@@ -1,0 +1,22 @@
+Order Confirmation
+
+Details
+
+..................................
+
+Name: {{ order.first_name }} {{ order.last_name }}
+Phone No.: {{ order.address }}
+place: {{ order.place }}
+E-mail: {{ order.email }}
+Address: {{ order.phone }}
+
+Products
+..................................
+
+Product     Price       Quantity        Total
+
+{% for item in order.items.all %}
+
+{{item.product.title}}      Kshs {{item.product.price}}     {{ item.quantity }}     Kshs {{item.get_total_price}}
+    
+{% endfor %}

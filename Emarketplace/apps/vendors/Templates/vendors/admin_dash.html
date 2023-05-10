@@ -1,0 +1,71 @@
+<div id="page-wrapper">
+    <div class="graphs">
+        <div class="col_3">
+            <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="fa fa-mail-forward"></i>
+                    <div class="stats">
+                      <h5>Kshs {{vendor.get_balance}}</h5>
+                      <div class="grow">
+                        <p>Balance</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="fa fa-reply"></i>
+                    <div class="stats">
+                      <h5>Kshs {{vendor.get_paid_amount}}</h5>
+                      <div class="grow grow1">
+                        <p>Paid Amount</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="fa fa-eye"></i>
+                    <div class="stats">
+                      <h5>{{total_products}}</h5>
+                      <div class="grow grow3">
+                        <p>All Products</p>
+                      </div>
+                    </div>
+                </div>
+             </div>
+             <div class="col-md-3 widget">
+                <div class="r3_counter_box">
+                    <i class="fa fa-bars"></i>
+                    <div class="stats">
+                      <h5>{{total_orders}}</h5>
+                      <div class="grow grow2">
+                        <p>Orders</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+<!-- switches -->
+<div class="switches">
+<div class="col-4">
+    <div class="col-md-4 switch-right">
+        <div class="switch-right-grid">
+            <div class="switch-right-grid1">
+                <h3>ALLTIME STATS</h3>
+                <p>Total Earnings.</p>
+                <ul>
+                    <li>Earning: Kshs {{vendor.get_paid_amount}}</li>
+                    <li>Items Sold: {{total_orders}} Items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+</div>
+<!-- //switches -->
+<div class="col_1">

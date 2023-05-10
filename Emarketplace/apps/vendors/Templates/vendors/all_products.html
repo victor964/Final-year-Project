@@ -1,0 +1,65 @@
+{% extends 'vendors/main.html' %}
+
+    {% block content %}
+
+        {% include 'vendors/sidebar.html' %}
+    
+		<!-- main content start-->
+		<div class="main-content">
+        <!-- header-starts -->
+			<div class="header-section">
+			 
+			<!--toggle button start-->
+			<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+			<!--toggle button end-->
+
+        {% include 'vendors/navbar.html' %}
+
+		</div>
+		<!-- //header-ends -->
+        
+		<div id="page-wrapper">
+			<div class="graphs">
+				<h3 class="blank1">All Products</h3>
+				 <div class="xs tabls">
+					<div class="bs-example4" data-example-id="contextual-table">
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th>#</th>
+						  <th>Title</th>
+						  <th>Description</th>
+						  <th>Price</th>
+						  <th>Actions</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						{% for product in all_products %}
+						<tr class="active">
+						  <th scope="row">{{product.id}}</th>
+						  <td>{{product.title}}</td>
+						  <td>{{product.description}}</td>
+						  <td>Kshs {{product.price}}</td>
+						  <td><a href="{% url 'edit_product' product.id %}">Edit</a></td>
+						</tr>
+						{% endfor %}
+					  </tbody>
+					</table>
+				   </div>
+				   <div class="panel-body1">
+
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+        <!--footer section start-->
+			<footer>
+			   <p>© VBizz Admin</p>
+			</footer>
+        <!--footer section end-->
+
+      <!-- main content end-->
+
+    {% endblock %}

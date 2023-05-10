@@ -1,0 +1,17 @@
+-Create virtual environment and activate it 00:00:17
+-Install Django and create project 00:01:08
+-Create app for core views and add to installed apps 00:01:49
+-Add a simple front page 00:03:10
+-Add static files 00:12:28
+-Create app for vendors and add to installed apps 00:17:04
+-Create database model for the vendors 00:18:08
+-Create view, template and form for sign up 00:22:28
+-Create simple area for vendors 00:30:49
+-Make it possible to log out and in again 00:34:58
+-Create app and models for products and categories 00:39:38
+-Show list of products in the admin area 00:51:55
+-Make it possible for vendors to add products 00:54:08
+-Show newest products on the front page 01:01:08
+-Show detail view of a product 01:05:08
+-Show a category 01:14:40
+-Create a simple search 01:20:08

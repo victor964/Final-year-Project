@@ -1,0 +1,80 @@
+{% extends 'vendors/main.html' %}
+
+    {% block content %}
+
+        {% include 'vendors/sidebar.html' %}
+    
+		<!-- main content start-->
+		<div class="main-content">
+        <!-- header-starts -->
+			<div class="header-section">
+			 
+			<!--toggle button start-->
+			<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+			<!--toggle button end-->
+
+        {% include 'vendors/navbar.html' %}
+
+		</div>
+		<!-- //header-ends -->
+        
+        {% include 'vendors/admin_dash.html' %}
+
+        <!--footer section start-->
+			<footer>
+			   <p></p>
+			</footer>
+        <!--footer section end-->
+
+      <!-- main content end-->
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vendor admin - {{vendor.name}}</h1>
+    <a href="{% url 'logout' %}">Log out</a>
+
+    <div class="box">
+        <h2>My Products</h2>
+        <a href="{% url 'add_product' %}">Add Product</a>
+        {% if products %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td><a href="{% url 'product' product.category.slug product.slug %}">{{product.title}}</a></td>
+                            <td>${{product.price}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You don't have any products yet..</p>
+        {% endif %}
+    </div>
+</body>
+</html>

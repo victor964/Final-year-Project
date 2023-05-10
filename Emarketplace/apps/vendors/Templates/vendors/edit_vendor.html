@@ -1,0 +1,113 @@
+{% extends 'vendors/main.html' %}
+
+    {% block content %}
+			<div id="page-wrapper" class="sign-in-wrapper">
+				<div class="graphs">
+					<div class="sign-up">
+						<h3>Edit Vendor</h3>
+						<p class="creating">Having hands on experience in creating innovative designs,I do offer design 
+							solutions which harness.</p>
+						<h5>Personal Information</h5>
+						<form method="post" action=".">
+							{% csrf_token %}
+					
+							<div class="field">
+								<label>Vendor name</label>
+					
+								<div class="control">
+									<input type="text" name="name" id="id_name" value="{{ vendor.name }}" class="input">
+								</div>
+					
+								<p class="help">This is not the same as the username!</p>
+							</div>
+					
+							<div class="field">
+								<label>E-mail</label>
+					
+								<div class="control">
+									<input type="email" name="email" id="id_email" value="{{ vendor.created_by.email }}" class="input">
+								</div>
+							</div>
+					
+							<div class="field">
+								<div class="control">
+									<button class="button is-dark is-uppercase">Save changes</button>
+								</div>
+							</div>
+						</form>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>First Name* :</h4>
+							</div>
+							<div class="sign-up2">
+								<form>
+									<input type="text" placeholder=" " required=" "/>
+								</form>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Last Name* :</h4>
+							</div>
+							<div class="sign-up2">
+								<form>
+									<input type="text" placeholder=" " required=" "/>
+								</form>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Email Address* :</h4>
+							</div>
+							<div class="sign-up2">
+								<form>
+									<input type="text" placeholder=" " required=" "/>
+								</form>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<h6>Login Information</h6>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Password* :</h4>
+							</div>
+							<div class="sign-up2">
+								<form>
+									<input type="password" placeholder=" " required=" "/>
+								</form>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Confirm Password* :</h4>
+							</div>
+							<div class="sign-up2">
+								<form>
+									<input type="password" placeholder=" " required=" "/>
+								</form>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sub_home">
+							<div class="sub_home_left">
+								<form>
+									<input type="submit" value="Submit">
+								</form>
+							</div>
+							<div class="sub_home_right">
+								<p>Go Back to <a href="{% url 'vendor_admin' %}">Home</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--footer section start-->
+			<footer>
+			   <p>&copy VBizz Admin</p>
+			</footer>
+        <!--footer section end-->
+    {% endblock %}

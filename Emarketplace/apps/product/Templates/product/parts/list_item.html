@@ -1,0 +1,14 @@
+{% for product in newest_products %}
+<img src="{{product.get_thumbnail}}" alt="">
+{{product.title}}
+{{product.price}}
+<hr>
+<a href="{% url 'product' product.category.slug product.slug %}">View</a>
+{% endfor %}
+
+{% if request.user.is_authenticated %}
+<a href="{% url 'vendor_admin' %}">Vendor admin</a>
+{% else %}
+<a href="{% url 'vendor_registration' %}">Vendor Sign-Uo</a>
+<a href="{% url 'login' %}">Vendor Log in</a>
+{% endif %}

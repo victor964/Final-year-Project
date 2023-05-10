@@ -1,0 +1,33 @@
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <h1><a href="{% url 'vendor_admin' %}">VBizz <span>Admin</span></a></h1>
+        </div>
+        <div class="logo-icon text-center">
+            <a href="{% url 'vendor_admin' %}"><i class="lnr lnr-home"></i> </a>
+        </div>
+
+        <!--logo and iconic logo end-->
+        <div class="left-side-inner">
+
+            <!--sidebar nav start-->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li class="active"><a href="{% url 'vendor_admin' %}"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
+                    <li class="menu-list">
+                        <a href="#"><i class="lnr lnr-cog"></i>
+                            <span>Products</span></a>
+                            <ul class="sub-menu-list">
+                                <li><a href="{% url 'add_product' %}">Add Product</a> </li>
+                                <li><a href="widgets.html">Delete Product</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="{% url 'all_products' %}"><i class="lnr lnr-spell-check"></i> <span>Inventory</span></a></li>
+                    <li><a href="{% url 'orders' %}"><i class="lnr lnr-menu"></i> <span>Orders</span></a></li>              
+                    <li><a href="{% url 'export_csv' %}"><i class="lnr lnr-download"></i> <span>Export as CSV</span></a></li>      
+                </ul>
+            <!--sidebar nav end-->
+        </div>
+    </div>
+    <!-- left side end-->

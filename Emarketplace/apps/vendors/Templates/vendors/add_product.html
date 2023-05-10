@@ -1,0 +1,71 @@
+{% extends 'vendors/main.html' %}
+
+    {% block content %}
+
+        {% include 'vendors/sidebar.html' %}
+    
+		<!-- main content start-->
+		<div class="main-content">
+        <!-- header-starts -->
+			<div class="header-section">
+			 
+			<!--toggle button start-->
+			<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+			<!--toggle button end-->
+
+        {% include 'vendors/navbar.html' %}
+
+		</div>
+		<!-- //header-ends -->
+
+    <div id="page-wrapper">
+        <div class="graphs">
+            <h3 class="blank1">Add Product</h3>
+                <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form">
+                    <form class="form-horizontal" method="post" action="." enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputFile">Category</label>
+                            {{form.category}}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Title</label>
+                            {{form.title}}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Description</label>
+                            {{form.description}}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Price</label>
+                            {{form.price}}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            {{form.image}}
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <button class="btn-success btn" type="submit">Submit</button>
+                                    <button class="btn-default btn">Cancel</button>
+                                    <button class="btn-inverse btn">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="bs-example" data-example-id="form-validation-states">
+        </div>
+    </div>
+</div>
+		<!--footer section start-->
+			<footer>
+			   <p>&copy VBizz Admin</p>
+			</footer>
+        <!--footer section end-->
+
+	{% endblock %}

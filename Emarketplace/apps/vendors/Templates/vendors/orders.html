@@ -1,0 +1,79 @@
+{% extends 'vendors/main.html' %}
+
+    {% block content %}
+
+        {% include 'vendors/sidebar.html' %}
+    
+		<!-- main content start-->
+		<div class="main-content">
+        <!-- header-starts -->
+			<div class="header-section">
+			 
+			<!--toggle button start-->
+			<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+			<!--toggle button end-->
+
+        {% include 'vendors/navbar.html' %}
+
+		</div>
+		<!-- //header-ends -->
+        
+		<div id="page-wrapper">
+			<div class="graphs">
+				<h3 class="blank1">My Orders</h3>
+                {% if orders %}
+                    {% for order in orders %}
+                    <a href="{% url 'paid_orders' order.id %}">Confirm Payment</a>
+                    <h1>{{ order.first_name }} {{ order.last_name }}</h1>
+                    <b>Name:</b> {{ order.first_name }} {{ order.last_name }}<br>
+                    <b>Phone:</b> {{ order.address }}<br>
+                    <b>Zip and place:</b> {{ order.place }}<br>
+                    <b>E-mail:</b> {{ order.email }}<br>
+                    <b>Residence:</b> {{ order.phone }}
+                        <div class="xs tabls">
+                            <div class="bs-example4" data-example-id="contextual-table">
+                                <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Paid</th>
+                                    <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in order.items.all %}
+                                        {% if item.Vendor == request.user.vendor %}
+                                            <tr class="active">
+                                                <th scope="row">{{item.id}}</th>
+                                                <td>{{item.product.title}}</td>
+                                                <td>Kshs {{item.product.price}}</td>
+                                                <td>{{item.quantity}}</td>
+                                                <td>{{item.vendor_paid|yesno:"Yes,No"}}</td>
+                                                <td>Kshs {{item.get_total_price}}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                                </table>
+                            </div>
+                            <div class="panel-body1">
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+		    </div>
+	    </div>
+
+        <!--footer section start-->
+			<footer>
+			   <p>&copy VBizz Admin</p>
+			</footer>
+        <!--footer section end-->
+
+      <!-- main content end-->
+
+    {% endblock %}

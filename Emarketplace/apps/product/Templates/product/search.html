@@ -1,0 +1,54 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="wrap"> 
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""  title="logo"/></a>
+		</div>
+		<div class="nav-right">
+			<ul class="nav">
+				<li class="active"><a href="{% url 'dashboard' %}">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="service.html">Service</a></li>
+				<li><a href="contact.html">Contact</a></li>
+                <li><a href="{% url 'cart' %}">Cart{% if cart %} ({{ cart|length }}) {% endif %}</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+<div class="content">
+
+    <div class="text-h">
+        <h2>Search term: {{query}}</h2>
+    </div>
+    <div class="section group">
+        {% for product in products %}
+            <div class="col_1_of_5 span_1_of_5">
+                <div class="grid-img">
+                        <a href="details.html"><img src="{{product.get_thumbnail}}" alt=""/></a> 
+                </div>
+                <p>{{product.title}}.</p>
+                <button class="left">Kshs {{product.price}}</button>
+                <div class="btn right"><a href="{% url 'product' product.category.slug product.slug %}">view</a></div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'vendor_admin' %}">Vendor admin</a>
+    {% else %}
+        <a href="{% url 'vendor_registration' %}">Vendor Sign-Uo</a>
+        <a href="{% url 'login' %}">Vendor Log in</a>
+    {% endif %}
+
+<div class="footer1">
+		<p></p>
+	</div>
+</div>
+{% endblock %}
+
+
+
